@@ -1,8 +1,11 @@
 import { onMounted, onUnmounted } from "vue"
 import { AActor } from "@/libs/AActor"
+import { Sidebar } from "./Components/Sidebar/Sidebar"
 
 class Application extends AActor {
     public constructor() { super() }
+
+    public sidebar = new Sidebar(this)
 
     public InitStates() {
         return {
@@ -18,7 +21,6 @@ class Application extends AActor {
         onMounted(async () => {
             await Renderer.Widget.SetShadow(true)
             await Renderer.Widget.Show()
-            this.Generate()
         })
         onUnmounted(async () => {
             await Renderer.GlobalShortcut.UnregisterAll()
@@ -27,10 +29,6 @@ class Application extends AActor {
     }
 
     protected Destroy() {
-
-    }
-
-    private Generate() {
 
     }
 }
