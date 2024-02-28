@@ -24,6 +24,7 @@ instance.Run()
 
 <template>
     <div class="DefaultWindow Application">
+        <router-view class="Children" />
         <HeaderBarVue :type="'main'"></HeaderBarVue>
         <SidebarVue></SidebarVue>
     </div>
