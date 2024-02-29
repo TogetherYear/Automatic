@@ -1,7 +1,12 @@
 <script lang="ts" setup>
+import { provide } from 'vue';
 import { Work } from './Work';
+import WorkVue from './Components/Operate/Operate.vue'
 
 const instance = new Work()
+
+provide('instance', instance)
+
 const {
 
 } = instance.InitStates()
@@ -11,7 +16,7 @@ instance.Run()
 
 <template>
     <div class="Work">
-        Work
+        <WorkVue></WorkVue>
     </div>
 </template>
 

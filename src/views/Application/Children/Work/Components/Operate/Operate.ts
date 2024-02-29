@@ -1,13 +1,12 @@
-import { AActor } from "@/libs/AActor"
 import { onMounted, onUnmounted } from "vue"
-import { Operate } from "./Components/Operate/Operate"
+import { Work } from "../../Work"
 
-class Work extends AActor {
-    public constructor() {
-        super()
+class Operate {
+    public constructor(parent: Work) {
+        this.parent = parent
     }
 
-    public operate = new Operate(this)
+    private parent!: Work
 
     public InitStates() {
         return {
@@ -34,4 +33,4 @@ class Work extends AActor {
     }
 }
 
-export { Work }
+export { Operate }
