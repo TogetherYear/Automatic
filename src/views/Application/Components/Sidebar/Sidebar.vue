@@ -15,10 +15,11 @@ instance.sidebar.Run()
 </script>
 
 <template>
-    <div class="Sidebar" :style="{ transform: isShow ? 'scale(1.0)' : 'scale(0.0)' }">
+    <div class="Sidebar" :style="{ transform: isShow ? 'scale(1.0)' : 'scale(0.0)', opacity: isShow ? '1.0' : '0.7' }">
         <n-tooltip placement="top" trigger="hover" v-for="m in menus" :key="m.title">
             <template #trigger>
-                <span class="Menu" @click="instance.sidebar.OnSwitchOptions(m.id)">
+                <span class="Menu" @click="instance.sidebar.OnSwitchOptions(m)">
+                    <span class="Select" :style="{ opacity: currentOption == m.id ? '1.0' : '0.0' }"></span>
                     <img :src="m.icon" alt="">
                 </span>
             </template>

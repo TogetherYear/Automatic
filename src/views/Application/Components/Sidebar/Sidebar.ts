@@ -4,6 +4,7 @@ import homeIcon from '@/assets/images/home.png'
 import workIcon from '@/assets/images/work.png'
 import storeIcon from '@/assets/images/store.png'
 import messageIcon from '@/assets/images/message.png'
+import router from "@/router"
 
 class Sidebar {
     public constructor(parent: Application) {
@@ -12,26 +13,30 @@ class Sidebar {
 
     private parent!: Application
 
-    private menus = ref<Array<{ id: number, title: string, icon: string }>>([
+    private menus = ref<Array<{ id: number, title: string, icon: string, route: string }>>([
         {
             id: 0,
             title: '主页',
-            icon: homeIcon
+            icon: homeIcon,
+            route: 'Home'
         },
         {
             id: 1,
             title: '工作',
-            icon: workIcon
+            icon: workIcon,
+            route: 'Work'
         },
         {
             id: 2,
             title: '标签',
-            icon: storeIcon
+            icon: storeIcon,
+            route: 'Store'
         },
         {
             id: 3,
             title: '消息',
-            icon: messageIcon
+            icon: messageIcon,
+            route: 'Message'
         },
     ])
 
@@ -67,15 +72,21 @@ class Sidebar {
     }
 
     private ListenEvents() {
-        window.addEventListener('keydown', (e) => {
-            if (e.code == 'Space') {
+        window.addEventListener('mouseup', (e) => {
+            if (e.button == 1) {
                 this.isShow.value = !this.isShow.value
             }
         })
     }
 
-    public OnSwitchOptions(e: number) {
-        this.currentOption.value = e
+    public OnSwitchOptions(e: { id: number, title: string, icon: string, route: string }) {
+        if (this.currentOption.value != e.id) {
+            router.push({
+                path: `/Application/${e.route}`
+            })
+            this.currentOption.value = e.id
+        }
+
     }
 }
 
