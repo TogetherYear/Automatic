@@ -37,10 +37,13 @@ class Sidebar {
 
     private currentOption = ref<number>(0)
 
+    private isShow = ref<boolean>(false)
+
     public InitStates() {
         return {
             menus: this.menus,
             currentOption: this.currentOption,
+            isShow: this.isShow,
         }
     }
 
@@ -49,6 +52,7 @@ class Sidebar {
     }
 
     public Run() {
+        this.ListenEvents()
         onMounted(() => {
 
         })
@@ -60,6 +64,14 @@ class Sidebar {
 
     protected Destroy() {
 
+    }
+
+    private ListenEvents() {
+        window.addEventListener('keydown', (e) => {
+            if (e.code == 'Space') {
+                this.isShow.value = !this.isShow.value
+            }
+        })
     }
 
     public OnSwitchOptions(e: number) {

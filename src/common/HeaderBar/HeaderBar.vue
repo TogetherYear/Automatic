@@ -3,6 +3,7 @@ import { HeaderBar } from './HeaderBar'
 import minIcon from '@/assets/mc/min.png'
 import maxIcon from '@/assets/mc/max.png'
 import closeIcon from '@/assets/mc/close.png'
+import logoIcon from '@/assets/images/logo.ico'
 import { App } from '@/App';
 
 const attribute = withDefaults(defineProps<{
@@ -53,6 +54,9 @@ instance.Run()
                 </span>
             </span>
             <span class="Drag" data-tauri-drag-region></span>
+        </span>
+        <span class="Logo">
+            <img :src="logoIcon" alt="">
         </span>
     </div>
 </template>
