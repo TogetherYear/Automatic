@@ -77,6 +77,9 @@ class Sidebar {
                 this.isShow.value = !this.isShow.value
             }
         })
+        window.addEventListener('click', () => {
+            this.isShow.value = false
+        })
     }
 
     public OnSwitchOptions(e: { id: number, title: string, icon: string, route: string }) {

@@ -11,7 +11,7 @@ instance.Run()
 
 <template>
     <div class="Message">
-
+        Message
     </div>
 </template>
 
