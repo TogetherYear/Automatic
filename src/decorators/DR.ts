@@ -32,5 +32,12 @@ namespace DR {
             }
         }
     }
+
+    export namespace Work {
+        export enum OperateState {
+            Idle,
+            Line,
+        }
+    }
 }
 export { DR }

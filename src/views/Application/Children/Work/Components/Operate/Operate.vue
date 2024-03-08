@@ -5,7 +5,7 @@ import { inject } from 'vue';
 const instance = inject('instance') as Work
 
 const {
-
+    dom,
 } = instance.operate.InitStates()
 instance.operate.InitHooks()
 instance.operate.Run()
@@ -13,7 +13,7 @@ instance.operate.Run()
 
 <template>
     <div class="Operate">
-
+        <span class="Canvas" ref="dom"></span>
     </div>
 </template>
 
