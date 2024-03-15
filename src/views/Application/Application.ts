@@ -1,11 +1,8 @@
 import { onMounted, onUnmounted } from "vue"
 import { AActor } from "@/libs/AActor"
-import { Sidebar } from "./Components/Sidebar/Sidebar"
 
 class Application extends AActor {
     public constructor() { super() }
-
-    public sidebar = new Sidebar(this)
 
     public InitStates() {
         return {

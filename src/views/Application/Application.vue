@@ -2,7 +2,6 @@
 import { provide } from 'vue';
 import { Application } from './Application';
 import HeaderBarVue from '@/common/HeaderBar/HeaderBar.vue';
-import SidebarVue from './Components/Sidebar/Sidebar.vue';
 import { App } from '@/App';
 
 const instance = new Application()
@@ -26,7 +25,6 @@ instance.Run()
     <div class="DefaultWindow Application">
         <router-view class="Children" />
         <HeaderBarVue :type="'main'"></HeaderBarVue>
-        <SidebarVue></SidebarVue>
     </div>
 </template>
 
